@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+<!--TODO:-->
+    <style>
+        .居中{
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 50%
+        }
+        .按钮{
+            position: absolute;
+            transform: translateY(150%);
+            font-size: 70px;
+            font-weight: bold;
+            color: rgb(211, 211, 211);
+            background-color:dimgrey;
+            padding:5%;
+            border-radius: 15%;
+            border-right: 4px solid rgb(95, 95, 95);
+            border-bottom: 4px solid rgb(95, 95, 95);
+            user-select: none;
+        }
+    </style>
+</head>
+<!--TODO:-->
+    <body style="background-color: ghostwhite;">
+        <audio id="audio" src="木鱼.mp3"></audio>
+        <div class="居中">
+            <div 
+                id="playButton"
+                onmouseover="overr(this);" 
+                onmouseout="outt(this);" 
+                onmousedown="downn(this);" 
+                onmouseup="upp(this);" 
+                onclick="clickk(this)";
+                class="按钮"
+            >
+            功德+0    
+            
+            </div>
+        </div>
+<!--TODO:-->
+        <script>
+            let count = 0;
+            function overr(event){
+                event.style.borderRight = '1px solid dimgrey';
+                event.style.borderBottom = '1px solid dimgrey';
+            }
+            function outt(event){
+                event.style.borderRight = '4px solid rgb(95, 95, 95)';
+                event.style.borderBottom = '4px solid rgb(95, 95, 95)';
+            }
+            function downn(event){
+                event.style.backgroundColor = 'rgb(55, 55, 55)';
+                event.style.color = 'rgb(161, 161, 161)';
+            }
+            function upp(event){
+                event.style.backgroundColor = 'dimgrey';
+                event.style.color = 'lightgray';
+            }
+            function clickk(event){
+                count++;
+                event.innerText= "功德+" + count;
+            }
+            audios = document.getElementById('audio');
+            const playButton = document.getElementById('playButton');
+            playButton.addEventListener('click', function() {
+                audios.currentTime = 0; // 将音频的当前时间设置为0
+                audios.play();
+            });
+        </script>
+    </body>
+</html>
